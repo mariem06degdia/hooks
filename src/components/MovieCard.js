@@ -1,21 +1,22 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-function MovieCard({simpson:{id,firstName,lastName,hobbies,imgUrl}}) {
+import Rating from './Rating';
+
+function MovieCard({ movie: { id, movieName, description, rating, imgUrl }}) {
   return (
-    <div>    
-    <Card style={{ width: '18rem', height:'500px' , backgroundColor:"#FFFF00" }}>
-    <Card.Img variant="top" style={{height:'280px'}} src={imgUrl} />
-    <Card.Body>
-      <Card.Title>{firstName}</Card.Title>
-      <Card.Text>
-      {lastName}
-     {hobbies}
-      </Card.Text>
-      <Button variant="primary" className='button' style={{backgroundColor:	"#FFDAB9"}}>see more</Button>
-    </Card.Body>
-  </Card>
-  </div>
+    <div>
+       <Card style={{ width: '20rem'}} className="cardContainer" >
+      <Card.Img variant="top" style={{height : '15rem'}}  src={imgUrl} />
+      <Card.Body>
+        <Card.Title>{movieName} </Card.Title>
+        <Card.Text>
+          {description}
+        </Card.Text>
+        <Rating rating= {rating}/>
+      </Card.Body>
+    </Card>
+    </div>
   )
 }
+
 export default MovieCard

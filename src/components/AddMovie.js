@@ -1,12 +1,12 @@
-
 import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+
 function AddMovie({ addMovie }) {
   const [show, setShow] = useState(false);
-  const [newSimpson, setNewSimpson] = useState({
+  const [newMovie, setNewMovie] = useState({
     movieName: "",
     description: "",
     imgUrl: "",
@@ -15,30 +15,30 @@ function AddMovie({ addMovie }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleChanges = () => {
-    addMovie({ ...newSimpson, id: Math.random() });
+    addMovie({ ...newMovie, id: Math.random() });
     handleClose();
   };
 
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Add a simpson
+        Add a movie
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add a simpson</Modal.Title>
+          <Modal.Title>Add a movie</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>simpson name</Form.Label>
+              <Form.Label>Movie name</Form.Label>
               <Form.Control
                 placeholder="type movie name here"
                 autoFocus
-                value={newSimpson.movieName}
+                value={newMovie.movieName}
                 onChange={(e) =>
-                  setNewSimpson({ ...newSimpson, SimpsonName: e.target.value })
+                  setNewMovie({ ...newMovie, movieName: e.target.value })
                 }
               />
             </Form.Group>
@@ -47,9 +47,9 @@ function AddMovie({ addMovie }) {
               <Form.Control
                 placeholder="type movie description here"
                 autoFocus
-                value={newSimpson.description}
+                value={newMovie.description}
                 onChange={(e) =>
-                  setNewSimpson({ ...newSimpson, description: e.target.value })
+                  setNewMovie({ ...newMovie, description: e.target.value })
                 }
               />
             </Form.Group>
@@ -58,21 +58,21 @@ function AddMovie({ addMovie }) {
               <Form.Control
                 placeholder="type movie poster url here"
                 autoFocus
-                value={newSimpson.imgUrl}
+                value={newMovie.imgUrl}
                 onChange={(e) =>
-                  setNewSimpson({ ...newSimpson, imgUrl: e.target.value })
+                  setNewMovie({ ...newMovie, imgUrl: e.target.value })
                 }
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Movie rating</Form.Label>
               <Form.Control
-                placeholder="enter simpson rating"
+                placeholder="enter movie rating"
                 autoFocus
                 type="number"
-                value={newSimpson.rating}
+                value={newMovie.rating}
                 onChange={(e) =>
-                  setNewSimpson({ ...newSimpson, rating: e.target.value })
+                  setNewMovie({ ...newMovie, rating: e.target.value })
                 }
               />
             </Form.Group>

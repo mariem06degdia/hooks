@@ -1,12 +1,12 @@
 import React from 'react'
 import MovieCard from './MovieCard'
 
-function MovieList({simpson,setSimpson ,search, rate}) {
+function MovieList({movies,setMovies, search, rate}) {
   return (
-    <div className='movieList'>
+    <div style={{display:"flex",justifyContent:"space-around",flexWrap:"wrap",backgroundColor:"red"}}>
   {
-    simpson.filter((s)=>console.log("test",s)) 
-    .map((s)=> <MovieCard simpson={s} key={s.id} />)
+    movies.filter((e)=>e.movieName.toLowerCase().includes(search.toLowerCase().trim()) && e.rating >= rate )
+    .map((e)=> <MovieCard movie={e} key={e.id} />)
   }
     </div>
   )

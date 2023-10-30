@@ -1,21 +1,23 @@
 import React from 'react'
-import { InputGroup } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 function Search({setSearch}) {
   return (
- <div>
- <InputGroup className="mb-3">
+    <div>
+         <InputGroup className="mb-3">
         <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-magnifying-glass"></i>
         </InputGroup.Text>
         <Form.Control
-          placeholder="search title"
+          placeholder="Search by title"
           aria-label="Username"
           aria-describedby="basic-addon1"
           onChange={(e)=> setSearch(e.target.value)}
         />
       </InputGroup>
-
-  </div>
+    </div>
   )
 }
+
 export default Search
